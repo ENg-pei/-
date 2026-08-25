@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from app.api.inventory_items import router as inventory_items_router
 from app.api.steam_accounts import router as steam_accounts_router
 from app.api.users import router as users_router
 from app.database import init_db
@@ -25,6 +26,7 @@ app = FastAPI(
 
 app.include_router(users_router)
 app.include_router(steam_accounts_router)
+app.include_router(inventory_items_router)
 
 
 @app.get("/")
